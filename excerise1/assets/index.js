@@ -1,13 +1,13 @@
-var UNIT_PRICE = 11;
+var BURRITO_PRICE = 11;
 var TAX_RATE = 0.08;
 var SHIPPING = 4;
 
-function getUnitPrice() {
-  return UNIT_PRICE;
+function getBurritoPrice() {
+  return BURRITO_PRICE;
 }
 
 function getTaxesPrice() {
-  return UNIT_PRICE * TAX_RATE;
+  return BURRITO_PRICE * TAX_RATE;
 }
 
 function getShippingPrice() {
@@ -23,7 +23,7 @@ function getNumberOfItems() {
 function getTotalCost() {
   var numberOfItems = getNumberOfItems();
   var totalCost =
-    getUnitPrice() * numberOfItems +
+    getBurritoPrice() * numberOfItems +
     getTaxesPrice() * numberOfItems +
     getShippingPrice();
   // alert(totalCost);                          string           varible
