@@ -1,24 +1,38 @@
+<!-- Declare the HTML document language as English -->
 <html lang="en">
   <head>
+    <!-- Specify character encoding as UTF-8 to support most characters -->
     <meta charset="UTF-8" />
+
+    <!-- Make the page responsive for different screen sizes -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Title that appears in the browser tab -->
     <title>Powerball Exercise</title>
   </head>
 
   <body>
+    <!-- Main heading for the page, centered using inline CSS -->
     <h1 style="text-align: center">Generate Powerball Numbers</h1>
 
+    <!-- Line breaks to add vertical spacing -->
     <br>
     <br /><br />
 
+    <!-- Button to trigger the getPowerball() function when clicked -->
     <button onclick="getPowerball()">Generate Numbers</button>
 
+    <!-- Line break for spacing -->
     <br />
 
+    <!-- Heading elements to display the generated Powerball numbers -->
+    <!-- The red ball result will appear here -->
     <h4 id="redball"></h4>
+
+    <!-- The white balls will appear here -->
     <h4 id="whiteball"></h4>
 
+    <!-- Link to the external JavaScript file containing the Powerball logic -->
     <script src="./index.js"></script>
-
   </body>
 </html>
