@@ -1,41 +1,50 @@
-// Maximum possible number for the red Powerball
-const RED_MAX = 26;
+// Maximum number possible for the red Powerball (1 to 26)
+const MAX_RED_VALUE = 26;
 
-// Maximum possible number for the white balls
-const WHITE_MAX = 69;
+// Maximum number possible for the white balls (1 to 69)
+const MAX_WHITE_VALUE = 69;
 
-// Function to generate a random ball number between 1 and maxValue (inclusive)
+// Function to generate a random integer ball number between 1 and maxValue (inclusive)
 function getBall(maxValue) {
-  // Math.random() generates a decimal from 0 up to (but not including) 1
-  // Multiplying by maxValue scales it up, and Math.ceil() rounds up to get 1–maxValue
+  // Math.random() returns a decimal >=0 and <1
+  // Multiply by maxValue to scale range to >=0 and <maxValue
+  // Math.ceil() rounds up to give integer from 1 to maxValue
   return Math.ceil(Math.random() * maxValue);
 }
 
-// Main function to generate and display Powerball numbers
+// Main function to generate and display the Powerball numbers
 function getPowerball() {
-  // Generate the red ball number
-  var redBall = getBall(RED_MAX);
+  // Generate the red ball number randomly between 1 and MAX_RED_VALUE
+  var redBall = getBall(MAX_RED_VALUE);
 
-  // Create an empty array to hold the 5 white ball numbers
+  // Initialize an empty array to store the unique white balls
   var whiteBalls = [];
 
-  // Loop 5 times to get 5 random white ball numbers
-  for (let i = 0; i < 5; i++) {
-    var whiteBall = getBall(WHITE_MAX); // Generate a white ball
-    whiteBalls.push(whiteBall);         // Add it to the array
+  // Original method (commented out) that generated 5 white balls, allowing duplicates
+  // for (let i = 0; i < 5; i++) {
+  //   var whiteBall = getBall(MAX_WHITE_VALUE);
+  //   whiteBalls.push(whiteBall);
+  // }
+
+  // New method: keep generating random white balls until there are 5 unique numbers
+  while (whiteBalls.length < 5) {
+    var whiteBall = getBall(MAX_WHITE_VALUE);
+    // Add whiteBall only if it isn't already in the array (to ensure uniqueness)
+    if (!whiteBalls.includes(whiteBall)) {
+      whiteBalls.push(whiteBall);
+    }
   }
 
-  // Debugging: log the number of white balls generated
+  // Debug output: log how many white balls were generated (should be 5)
   console.log(whiteBalls.length);
 
-  // Debugging: log the first white ball generated
+  // Debug output: log the first white ball number generated
   console.log(whiteBalls[0]);
 
-  // Display the red ball number in the HTML element with id "redball"
-  document.getElementById("redball").innerHTML = "Your Powerball: " + redBall;
+  // Update the HTML element with id "redball" to show the red ball number
+  document.getElementById("redball").innerHTML = "Your Redball: " + redBall;
 
-  // Display the list of white ball numbers in the HTML element with id "whiteball-one"
-  // Currently, this shows them all together as a comma-separated string
-  document.getElementById("whiteball-one").innerHTML =
-    "Your Powerball: " + whiteBalls;
+  // Update the HTML element with id "whiteballs" to show all white balls as a comma-separated list
+  document.getElementById("whiteballs").innerHTML =
+    "Your Whiteballs: " + whiteBalls;
 }

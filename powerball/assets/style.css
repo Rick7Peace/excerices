@@ -1,0 +1,64 @@
+/* Reset some default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body styles: use a nice font and center all content vertically and horizontally */
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* vertical center */
+    align-items: center;     /* horizontal center */
+    background: black;       /* changed to black */
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Style the main heading */
+  h1 {
+    color: #b22222; /* firebrick red for Powerball theme */
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+  }
+  
+  /* Style the button */
+  button {
+    background-color: #b22222;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 30px;
+  }
+  
+  button:hover {
+    background-color: #8b1a1a;
+  }
+  
+  /* Style the result headings */
+  h4 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: white;   /* default gray for results */
+    min-width: 300px;
+  }
+  
+  /* Specific style for red ball text */
+  #redball {
+    color: #b22222;
+    font-weight: bold;
+  }
+  
+  /* Specific style for white balls text only */
+  #whiteball-one {
+    color: white;   /* changed to white */
+    font-weight: 600;
+  }
+  
